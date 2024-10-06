@@ -1,0 +1,18 @@
+.users {
+    display: flex;
+  }
+  
+  .usersContainer {
+    flex: 1;
+    background: #f9f9f9;
+  }
+  
+  .userContent {
+    padding: 20px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+  

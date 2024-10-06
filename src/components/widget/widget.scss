@@ -1,0 +1,46 @@
+.widget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+  
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  
+    .left {
+      display: flex;
+      flex-direction: column;
+  
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+  
+      .counter {
+        font-size: 28px;
+        font-weight: 700;
+      }
+    }
+  
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      .iconContainer {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  
