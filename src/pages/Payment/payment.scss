@@ -1,0 +1,24 @@
+.payment {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .paymentContainer {
+        flex: 6;
+        padding: 20px;
+        overflow: auto;
+        height: 100%;
+
+        .paymentContent {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .paymentContainer {
+        padding: 10px;
+    }
+}

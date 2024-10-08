@@ -1,0 +1,24 @@
+.subscription {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .subscriptionContainer {
+        flex: 6;
+        padding: 20px;
+        overflow: auto;
+        height: 100%;
+
+        .subscriptionContent {
+            margin-top: 20px;
+            overflow: hidden;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .subscriptionContainer {
+        padding: 10px;
+    }
+}

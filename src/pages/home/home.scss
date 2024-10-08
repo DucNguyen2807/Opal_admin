@@ -1,19 +1,39 @@
 .home {
-    display: flex;
-  
-    .homeContainer {
-      flex: 6;
-      padding: 20px;
-  
-      .widgets {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-  
-      .charts {
-        margin-top: 20px;
+  display: flex;
+  overflow: hidden;
+
+  .homeContainer {
+    flex: 6;
+    padding: 20px;
+    overflow: hidden; 
+
+    .widgets {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap; 
+
+      
+      >div {
+        margin-bottom: 20px; 
+        flex: 1;
+        min-width: 300px; 
       }
     }
+
+    .charts {
+      margin-top: 20px;
+      overflow: hidden; 
+    }
   }
-  
+}
+
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 10px; 
+  }
+
+  .widgets {
+    flex-direction: column; 
+  }
+}

@@ -24,11 +24,11 @@ const Sidebar = () => {
           </li>
           <li>
             <ShoppingCartOutlined className="icon" />
-            <Link to="/products">Products</Link>
+            <Link to="/payments">Payment</Link>
           </li>
           <li>
             <DollarOutlined className="icon" />
-            <Link to="/orders">Orders</Link>
+            <Link to="/subscriptions">Subscription</Link>
           </li>
           <p className="title">SERVICE</p>
           <li>

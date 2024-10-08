@@ -1,18 +1,29 @@
 .users {
-    display: flex;
-  }
-  
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
   .usersContainer {
-    flex: 1;
-    background: #f9f9f9;
-  }
-  
-  .userContent {
+    flex: 6;
     padding: 20px;
+    overflow: auto;
+    height: 100%;
+
+    .userContent {
+      margin-top: 20px;
+      overflow: hidden;
+    }
   }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: space-around;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .usersContainer {
+    padding: 10px;
   }
-  
+}
