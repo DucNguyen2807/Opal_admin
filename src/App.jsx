@@ -19,7 +19,6 @@ const App = () => {
     <Router>
       <div className="app-container">
         <Routes>
-        <Route path="/tien" element={<PaymentSuccess />} />
 
 
           {isAdmin() ? (
@@ -39,6 +38,7 @@ const App = () => {
           )}
         </Routes>
       </div>
+      <Route path="/tien" element={<PaymentSuccess />} />
     </Router>
   );
 };
