@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Modal, Form, Input, message } from 'antd';
+import { Modal, Form, Input, message, Tag } from 'antd'; // Import Tag
 import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import './user.scss'; 
@@ -11,11 +11,11 @@ const Users = () => {
   const [userData, setUserData] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [isModalVisible, setIsModalVisible] = useState(false); // State để điều khiển modal
-  const [selectedUser, setSelectedUser] = useState(null); // Lưu thông tin người dùng được chọn để chỉnh sửa
-  const [form] = Form.useForm(); // Tạo form từ Ant Design
+  const [isModalVisible, setIsModalVisible] = useState(false); // State to control modal visibility
+  const [selectedUser, setSelectedUser] = useState(null); // State to store the selected user for editing
+  const [form] = Form.useForm(); // Create form from Ant Design
 
-  // Hàm fetch danh sách người dùng
+  // Fetch the list of users
   const fetchUsers = async (pageIndex = 1, pageSize = 10, search = '') => {
     setLoading(true);
     try {
@@ -31,16 +31,16 @@ const Users = () => {
   };
 
   useEffect(() => {
-    fetchUsers(); // Gọi khi component được mount
+    fetchUsers(); // Fetch users when the component is mounted
   }, []);
 
-  // Hàm gọi khi thay đổi phân trang
+  // Handle pagination changes
   const handleTableChange = (pagination) => {
     const { current, pageSize } = pagination;
     fetchUsers(current, pageSize);
   };
 
-  // Hàm mở modal chỉnh sửa người dùng
+  // Open modal for editing user
   const handleEdit = (user) => {
     if (user && user.userId) {
       setSelectedUser(user);
@@ -48,13 +48,23 @@ const Users = () => {
         fullname: user.fullname,
         phoneNumber: user.phoneNumber,
       });
-      setIsModalVisible(true); // Hiển thị modal chỉnh sửa
+      setIsModalVisible(true); // Show edit modal
     } else {
       message.error('Invalid user selected');
     }
   };
 
-  // Hàm cập nhật thông tin người dùng
+  // Get the role tag based on user role
+  const getRoleUser = (role) => {
+    if (role === 'User') {
+      return <Tag color="yellow">{role}</Tag>; // Use correct role variable
+    } else if (role === 'Admin') {
+      return <Tag color="green">{role}</Tag>;
+    }
+    return <Tag>{role}</Tag>;
+  };
+
+  // Update user information
   const handleUpdate = async () => {
     try {
       if (!selectedUser || !selectedUser.userId) {
@@ -65,73 +75,72 @@ const Users = () => {
       const values = form.getFieldsValue();
       await updateAccountAdmin(selectedUser.userId, values.fullname, values.phoneNumber);
       message.success('User updated successfully');
-      setIsModalVisible(false); // Đóng modal sau khi cập nhật
-      form.resetFields(); // Reset các field trong form
-      fetchUsers(); // Cập nhật lại danh sách người dùng sau khi chỉnh sửa
+      setIsModalVisible(false); // Close modal after update
+      form.resetFields(); // Reset form fields
+      fetchUsers(); // Refresh user list after update
     } catch (error) {
       message.error('Failed to update user');
       console.error(error);
     }
   };
 
-const columns = [
-  {
-    title: 'User ID',
-    dataIndex: 'userId',
-    key: 'userId',
-  },
-  {
-    title: 'Name',
-    dataIndex: 'fullname',
-    key: 'fullname',
-  },
-  {
-    title: 'Email',
-    dataIndex: 'email',
-    key: 'email',
-  },
-  {
-    title: 'Role',
-    dataIndex: 'role',
-    key: 'role',
-    render: (role) => <span style={{ color: role === 'admin' ? 'blue' : 'orange' }}>{role}</span>, // Color roles
-  },
-  {
-    title: 'Phone Number',
-    dataIndex: 'phoneNumber',
-    key: 'phoneNumber',
-  },
-  {
-    title: 'Actions',
-    key: 'actions',
-    render: (_, record) => (
-      <div className="action-buttons">
-        <Button 
-          type="default" 
-          size="small" 
-          style={{ marginRight: '10px', backgroundColor: '#1890ff', borderColor: '#1890ff' }} 
-          onClick={() => handleEdit(record)}
-          icon={<EditOutlined />} // Icon for edit
-        >
-          Edit
-        </Button>
-        <Button 
-          type="primary" 
-          size="small" 
-          style={{ marginRight: '10px', backgroundColor: '#ff4d4f', borderColor: '#ff4d4f' }} 
-          onClick={() => handleDelete(record.userId)} // Cần thêm hàm handleDelete
-          icon={<DeleteOutlined />} // Icon for delete
-        >
-          Delete
-        </Button>
-      </div>
-    ),
-  },
-];
-
+  const columns = [
+    {
+      title: 'User ID',
+      dataIndex: 'userId',
+      key: 'userId',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'fullname',
+      key: 'fullname',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: 'Role',
+      dataIndex: 'role',
+      key: 'role',
+      render: (role) => getRoleUser(role),
+    },
+    {
+      title: 'Phone Number',
+      dataIndex: 'phoneNumber',
+      key: 'phoneNumber',
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (_, record) => (
+        <div className="action-buttons">
+          <Button 
+            type="default" 
+            size="small" 
+            style={{ marginRight: '10px', backgroundColor: '#1890ff', borderColor: '#1890ff' }} 
+            onClick={() => handleEdit(record)}
+            icon={<EditOutlined />} // Icon for edit
+          >
+            Edit
+          </Button>
+          <Button 
+            type="primary" 
+            size="small" 
+            style={{ marginRight: '10px', backgroundColor: '#ff4d4f', borderColor: '#ff4d4f' }} 
+            onClick={() => handleDelete(record.userId)} // Add a handleDelete function
+            icon={<DeleteOutlined />} // Icon for delete
+          >
+            Delete
+          </Button>
+        </div>
+      ),
+    },
+  ];
 
   return (
-    <div className="users" style={{  minHeight: '100vh' }}>
+    <div className="users" style={{ minHeight: '100vh' }}>
       <Sidebar />
       <div className="usersContainer">
         <Navbar />
@@ -149,14 +158,14 @@ const columns = [
           </Card>
         </div>
       </div>
-      {/* Modal để cập nhật thông tin người dùng */}
+      {/* Modal for updating user information */}
       <Modal
         title="Edit User"
         visible={isModalVisible}
         onOk={handleUpdate}
         onCancel={() => {
           setIsModalVisible(false);
-          form.resetFields(); // Reset fields khi cancel
+          form.resetFields(); // Reset fields on cancel
         }}
         okText="Update"
         cancelText="Cancel"

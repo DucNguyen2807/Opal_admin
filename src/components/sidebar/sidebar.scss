@@ -1,91 +1,132 @@
 .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #111827;
-    color: #fff;
-    position: sticky;
-    top: 0;
-    flex: 1;
-  
-    .top {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      .logo {
-        font-size: 20px;
-        font-weight: bold;
-        color: #f3f4f6;
+  width: 250px;
+  height: 100vh;
+  background-color: #6BAA75;
+  /* Màu nền xanh sáng hơn */
+  color: #fff;
+  /* Màu chữ trắng cho dễ đọc */
+  position: sticky;
+  top: 0;
+  flex: 1;
+  overflow: hidden;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  /* Thêm bóng cho sidebar */
+
+  .top {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5F9B63;
+    /* Màu nền cho phần đầu */
+
+    .sidebar-logo {
+      width: 150px;
+      /* Đặt kích thước cho logo */
+      height: auto;
+      /* Giữ tỷ lệ của logo */
+      margin-right: 10px;
+      /* Khoảng cách bên phải */
+    }
+  }
+
+  hr {
+    height: 0;
+    border: 0.5px solid #D1D5DB;
+    /* Màu xám nhạt */
+  }
+
+  .center {
+    padding: 20px;
+    /* Thêm padding cho phần trung tâm */
+    height: calc(100vh - 200px);
+    /* Tính toán chiều cao đúng */
+    overflow-y: auto;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      .title {
+        font-size: 16px;
+        /* Tăng kích thước chữ cho tiêu đề */
+        color: #f0f0f0;
+        /* Màu chữ sáng hơn cho tiêu đề */
+        margin: 20px 0 10px;
+        /* Khoảng cách rõ ràng hơn */
       }
-    }
-  
-    hr {
-      height: 0;
-      border: 0.5px solid #374151;
-    }
-  
-    .center {
-      padding-left: 10px;
-  
-      ul {
-        list-style: none;
-        padding: 0;
-  
-        .title {
-          font-size: 12px;
-          color: #6b7280;
-          margin-top: 15px;
-          margin-bottom: 5px;
-        }
-  
-        li {
-          display: flex;
-          align-items: center;
-          padding: 10px;
-          cursor: pointer;
-          border-radius: 5px;
-          margin: 5px 0;
-  
-          &:hover {
-            background-color: #374151;
-          }
-  
-          .icon {
-            font-size: 18px;
-            margin-right: 10px;
-          }
-  
-          a {
-            text-decoration: none;
-            color: inherit;
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  
-    .bottom {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-  
-      .colorOption {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin: 10px;
+
+      li {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        /* Tăng padding cho các mục */
         cursor: pointer;
-  
-        &:first-child {
-          background-color: #1f2937;
+        border-radius: 10px;
+        margin: 5px 0;
+        transition: background-color 0.3s ease;
+        /* Hiệu ứng chuyển màu mượt mà */
+
+        &:hover {
+          background-color: #4E8B55;
+          /* Màu khi hover */
+          color: #ffffff;
+          /* Màu chữ khi hover */
         }
-  
-        &:last-child {
-          background-color: #e5e7eb;
+
+        .icon {
+          font-size: 20px;
+          /* Tăng kích thước icon */
+          margin-right: 15px;
+          /* Khoảng cách bên phải cho icon */
+          color: #fff;
+          /* Màu icon trắng */
+        }
+
+        a {
+          text-decoration: none;
+          color: #ffffff;
+          /* Màu chữ trắng cho liên kết */
+
+          &:hover {
+            color: #ffcc00;
+            /* Màu chữ khi hover */
+          }
         }
       }
     }
   }
-  
+
+  .logout {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: auto;
+    /* Đẩy logout xuống dưới cùng */
+    transition: background-color 0.3s ease;
+    /* Hiệu ứng chuyển màu mượt mà */
+
+    &:hover {
+      background-color: #FF4040;
+      /* Màu khi hover */
+    }
+
+    .icon {
+      font-size: 20px;
+      /* Tăng kích thước icon cho logout */
+      margin-right: 10px;
+      /* Khoảng cách bên phải cho icon */
+      color: #fff;
+      /* Màu icon trắng */
+    }
+
+    span {
+      color: #fff;
+      /* Màu chữ trắng */
+      font-size: 16px;
+      /* Kích thước chữ cho logout */
+    }
+  }
+}

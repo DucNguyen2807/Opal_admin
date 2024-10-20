@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    /* Đảm bảo kích thước bao gồm padding và border */
+}
+
+html,
+body {
+    margin: 0;
+    /* Đảm bảo không có margin mặc định */
+    padding: 0;
+    /* Đảm bảo không có padding mặc định */
+    overflow-x: hidden;
+    /* Ngăn cuộn ngang */
+}
+
+.app-container {
+    background-color: #FFE29A;
+    /* Màu vàng nhạt */
+    min-height: 100vh;
+    /* Đảm bảo chiều cao tối thiểu cho toàn bộ trang */
+    padding: 0;
+    /* Xóa padding để tránh lòi ra */
+    display: flex;
+    /* Sử dụng Flexbox */
+    height: 100vh;
+    /* Chiều cao đầy đủ của viewport */
+}
+
+.main-content {
+    flex: 1;
+    /* Chiếm không gian còn lại */
+    overflow-y: auto;
+    /* Cho phép cuộn dọc nếu cần */
+    overflow-x: hidden;
+    /* Ngăn cuộn ngang trong nội dung chính */
+    padding: 20px;
+    /* Thêm padding để không bị dính vào cạnh */
+}

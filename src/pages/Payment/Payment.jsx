@@ -35,7 +35,7 @@ const Payment = () => {
   const getStatusTag = (status) => {
     if (status === 'Pending') {
       return <Tag color="yellow">{status}</Tag>; 
-    } else if (status === 'Completed') { 
+    } else if (status === 'Success') { 
       return <Tag color="green">{status}</Tag>; 
     } else if (status === 'Cancel') { 
       return <Tag color="red">{status}</Tag>; 
@@ -96,7 +96,7 @@ const Payment = () => {
       <div className="paymentContainer">
         <Navbar />
         <div className="paymentContent">
-          <Card title="Payment Management" style={{ margin: 20 }}>
+          <Card title="Transaction Management" style={{ margin: 20 }}>
             <Table 
               columns={columns} 
               dataSource={paymentData} 

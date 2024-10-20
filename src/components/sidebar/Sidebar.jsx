@@ -1,13 +1,23 @@
 import React from 'react';
 import './sidebar.scss';
-import { Link } from 'react-router-dom';
-import { DashboardOutlined, UserOutlined, ShoppingCartOutlined, DollarOutlined, SettingOutlined } from '@ant-design/icons';
+import { Link, useNavigate } from 'react-router-dom';
+import { DashboardOutlined, UserOutlined, ShoppingCartOutlined, DollarOutlined, LogoutOutlined } from '@ant-design/icons'; 
+import logo from '../../assets/logo.png';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    window.location.href = '/login';
+
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">Opal Admin</span>
+        <img src={logo} alt="Logo" className="sidebar-logo" />
       </div>
       <hr />
       <div className="center">
@@ -24,23 +34,19 @@ const Sidebar = () => {
           </li>
           <li>
             <ShoppingCartOutlined className="icon" />
-            <Link to="/payments">Payment</Link>
+            <Link to="/payments">Transaction</Link>
           </li>
           <li>
             <DollarOutlined className="icon" />
             <Link to="/subscriptions">Subscription</Link>
           </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingOutlined className="icon" />
-            <Link to="/settings">Settings</Link>
-          </li>
         </ul>
+        <div className="logout">
+        <LogoutOutlined className="icon" onClick={handleLogout} />
+        <span onClick={handleLogout} style={{ cursor: 'pointer', marginLeft: '8px' }}>Logout</span>
       </div>
-      <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
       </div>
+      
     </div>
   );
 };

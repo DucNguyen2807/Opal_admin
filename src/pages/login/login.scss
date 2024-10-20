@@ -1,0 +1,163 @@
+/* Reset mặc định cho body và html */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Chặn việc tràn */
+}
+
+/* Container chính cho màn hình đăng nhập */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(#41B53E 10%, #FFE29A 10%, #FFE29A 90%, #41B53E 90%);
+    /* Màu xanh lá ở trên và dưới, màu vàng ở giữa */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Đảm bảo không có overflow */
+    padding-left: 0;
+    /* Đảm bảo không có padding bên trái */ 
+}
+
+/* Phong cách cho thẻ đăng nhập */
+.login-card {
+    display: flex;
+    background-color: #DCEE6A;
+    /* Màu nền */
+    border-radius: 12px;
+    /* Đường viền tròn lớn hơn */
+    width: 95%;
+    /* Chiều rộng lớn hơn */
+    max-width: 1200px;
+    /* Tăng chiều rộng tối đa */
+    height: 600px;
+    /* Đặt chiều cao cụ thể cho khung */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    /* Bóng mờ đậm hơn */
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Đảm bảo không có overflow */
+    margin: 30px auto;
+    /* Tự động căn lề trái và phải, thêm khoảng cách trên và dưới */
+    padding: 30px;
+    /* Thêm padding để tạo khoảng cách giữa nội dung và viền khung */
+    transition: transform 0.3s ease;
+    /* Hiệu ứng chuyển động khi hover */
+}
+
+/* Hiệu ứng hover cho thẻ đăng nhập */
+.login-card:hover {
+    transform: scale(1.02);
+    /* Tăng kích thước khi hover */
+}
+
+/* Bên trái chứa hình ảnh */
+.login-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5f9c7;
+    border-radius: 8px 0 0 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100%;
+    /* Đảm bảo chiếm hết chiều cao */
+}
+
+/* Form container ở bên phải */
+.login-form {
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: #DCEE6A;
+    /* Màu nền tương tự thẻ đăng nhập */
+    border-radius: 0 12px 12px 0;
+    /* Góc tròn phía bên phải */
+    min-height: 100%;
+    /* Đảm bảo chiếm hết chiều cao */
+}
+
+
+/* Hình ảnh logo trong thẻ đăng nhập */
+.logo {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+/* Logo thứ hai */
+.logo1 {
+    width: 100%;
+    max-width: 150px;
+}
+
+/* Phong cách cho tiêu đề đăng nhập */
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Phong cách cho các trường nhập liệu */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ffdab9;
+    /* Màu hồng đào nhẹ cho trường nhập liệu */
+    font-size: 14px;
+    color: #333;
+}
+
+/* Phong cách cho nút submit */
+button[type='submit'] {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff8c42;
+    /* Màu cam cho nút */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 60px;
+    /* Thêm khoảng cách trên để hạ nút xuống */
+}
+
+/* Hiệu ứng hover cho nút */
+button[type='submit']:hover {
+    background-color: #e07b39;
+    /* Màu cam đậm hơn khi hover */
+}
+
+/* Phong cách cho thông báo lỗi */
+.error {
+    color: red;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+/* Phong cách cho label */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}

@@ -15,6 +15,7 @@ const Subscription = () => {
   const [currentSubscription, setCurrentSubscription] = useState(null);
   const [form] = Form.useForm();
 
+  // Lấy dữ liệu từ API
   const fetchSubscriptions = async (pageIndex = 1, pageSize = 10, search = '') => {
     setLoading(true);
     try {
@@ -32,11 +33,13 @@ const Subscription = () => {
     fetchSubscriptions(); 
   }, []);
 
+  // Xử lý phân trang
   const handleTableChange = (pagination) => {
     const { current, pageSize } = pagination;
     fetchSubscriptions(current, pageSize);
   };
 
+  // Thay đổi trạng thái của Subscription
   const handleToggleStatus = async (subscriptionId) => {
     try {
       await toggleSubscriptionStatus(subscriptionId);
@@ -46,12 +49,14 @@ const Subscription = () => {
     }
   };
 
+  // Hiển thị modal chỉnh sửa
   const handleEditClick = (subscription) => {
     setCurrentSubscription(subscription);
     form.setFieldsValue(subscription);
     setVisible(true);
   };
 
+  // Xử lý khi submit form cập nhật
   const handleUpdateSubmit = async (values) => {
     try {
       const updatedValues = {
@@ -66,19 +71,23 @@ const Subscription = () => {
     }
   };
 
+  // Định dạng trạng thái thành các thẻ màu
   const getStatusTag = (status) => {
-    if (status === 'Active') {
-      return <Tag color="green">{status}</Tag>;
-    } else if (status === 'Inactive') {
-      return <Tag color="red">{status}</Tag>;
+    const trimmedStatus = status.trim(); 
+    if (trimmedStatus === 'Active') {
+      return <Tag color="green">{trimmedStatus}</Tag>;
+    } else if (trimmedStatus === 'Not Active') {
+      return <Tag color="red">{trimmedStatus}</Tag>;
     }
-    return <Tag>{status}</Tag>;
+    return <Tag>{trimmedStatus}</Tag>;
   };
 
+  // Định dạng giá tiền
   const formatPrice = (price) => {
     return `${price.toLocaleString()} VNĐ`;
   };
 
+  // Các cột trong bảng
   const columns = [
     {
       title: 'Subscription Name',
@@ -132,8 +141,6 @@ const Subscription = () => {
           >
             Delete
           </Button>
-
-
         </div>
       ),
     },

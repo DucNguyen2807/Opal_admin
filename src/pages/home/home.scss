@@ -1,39 +1,53 @@
 .home {
   display: flex;
   overflow: hidden;
+  height: 100vh;
+  background-color: #f0f2f5; // Thêm màu nền sáng cho toàn bộ trang
 
   .homeContainer {
     flex: 6;
     padding: 20px;
-    overflow: hidden; 
+    overflow: hidden; // Đảm bảo không có nội dung nào lòi ra
+    background-color: #FFE29A; // Thêm màu nền trắng cho container
+    border-radius: 10px; // Bo tròn góc
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Thêm bóng cho container
 
     .widgets {
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
-      flex-wrap: wrap; 
+      flex-wrap: wrap;
 
-      
       >div {
-        margin-bottom: 20px; 
+        margin-bottom: 20px;
         flex: 1;
-        min-width: 300px; 
+        min-width: 300px; // Có thể điều chỉnh giá trị này nếu cần
+        border-radius: 10px; // Bo tròn góc cho widget
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Thêm bóng cho widget
+        transition: transform 0.2s ease; // Hiệu ứng khi hover
+
+        &:hover {
+          transform: translateY(-5px); // Hiệu ứng nâng lên khi hover
+        }
       }
     }
 
     .charts {
       margin-top: 20px;
-      overflow: hidden; 
+      overflow: hidden; // Đảm bảo không có nội dung nào lòi ra
+      border-radius: 10px; // Bo tròn góc cho charts
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Thêm bóng cho charts
     }
   }
 }
 
+// Responsive styles
 @media (max-width: 768px) {
   .homeContainer {
-    padding: 10px; 
+    padding: 10px;
   }
 
   .widgets {
-    flex-direction: column; 
+    flex-direction: column;
   }
 }
