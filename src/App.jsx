@@ -36,9 +36,9 @@ const App = () => {
               <Route path="*" element={<Navigate to="/login" />} />
             </>
           )}
+                <Route path="/tien" element={<PaymentSuccess />} />
         </Routes>
       </div>
-      <Route path="/tien" element={<PaymentSuccess />} />
     </Router>
   );
 };
