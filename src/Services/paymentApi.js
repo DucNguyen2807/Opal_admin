@@ -9,3 +9,17 @@ export const getAllPayment = async (pageIndex = 0, pageSize = 0, search = '') =>
     throw error.response ? error.response.data : new Error('An error occurred');
   }
 };
+
+export const UpdatePaymentSubscriptionStatus = async (paymentId, status) => {
+    try {
+        const paymentUpdateReqModel = {
+            paymentId,
+            status
+        }
+        const response = await apiClient.put("/api/subscription/subscribe", paymentUpdateReqModel, {}, true )
+
+        return response.data;
+    }catch(error) {
+        throw error
+    }
+}

@@ -5,6 +5,7 @@ import Users from './pages/users/User';
 import Subscription from './pages/subscription/Subscription';
 import Payment from './pages/Payment/Payment';
 import Login from './pages/login/Login'; 
+import PaymentSuccess from './pages/paymentSucess/index';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,9 @@ const App = () => {
     <Router>
       <div className="app-container">
         <Routes>
+        <Route path="/tien" element={<PaymentSuccess />} />
+
+
           {isAdmin() ? (
             <>
               <Route path="/" element={<Home />} />
@@ -28,6 +32,7 @@ const App = () => {
             </>
           ) : (
             <>
+              
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </>

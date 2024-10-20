@@ -1,0 +1,96 @@
+.paymentSuccess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #FFE29A; // Background color
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.paymentCard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 36px;
+  color: #4949e9; // Logo color remains
+  margin-bottom: 10px;
+}
+
+.title {
+  color: black; // Changed to black
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.paymentInfo {
+  p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: black; // Changed to black
+  }
+
+  .paid {
+    color: green;
+  }
+
+  .cancelled {
+    color: red;
+  }
+  
+}
+
+.messageContainer {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.message {
+  color: black; // Changed to black
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.returnButton {
+  background-color: #b3ff00;
+  color: black; // Changed to black
+  border: none;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #4949e9;
+    color: #b3ff00;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .paymentCard,
+  .messageContainer {
+    max-width: 90%;
+  }
+
+  .message {
+    font-size: 24px;
+  }
+}
+.logoImage {
+  width: 150px;
+  /* Set your desired width */
+  margin-bottom: 20px;
+  /* Space below the logo */
+}
