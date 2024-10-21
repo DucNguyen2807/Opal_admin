@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-  baseURL: 'https://localhost:7203',
+  baseURL: 'https://opal.io.vn/',
   headers: {
     'Content-type': 'application/json',
   },
