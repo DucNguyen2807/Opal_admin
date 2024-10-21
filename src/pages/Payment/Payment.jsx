@@ -35,9 +35,9 @@ const Payment = () => {
   const getStatusTag = (status) => {
     if (status === 'Pending') {
       return <Tag color="yellow">{status}</Tag>; 
-    } else if (status === 'Success') { 
+    } else if (status === 'PAID') { 
       return <Tag color="green">{status}</Tag>; 
-    } else if (status === 'Cancel') { 
+    } else if (status === 'CANCELLED') { 
       return <Tag color="red">{status}</Tag>; 
     } 
     return <Tag>{status}</Tag>;
