@@ -3,7 +3,7 @@ import Navbar from '../../components/navbar/Navbar';
 import Sidebar from '../../components/sidebar/Sidebar';
 import './payment.scss'; 
 import { Table, Card, Tag } from 'antd';
-import { getAllPayment } from '../../Services/paymentApi';
+import { getAllPaymentOrderDate } from '../../Services/paymentApi';
 
 const Payment = () => {
   const [paymentData, setPaymentData] = useState([]);
@@ -13,7 +13,7 @@ const Payment = () => {
   const fetchPayments = async (pageIndex = 1, pageSize = 10, search = '') => {
     setLoading(true);
     try {
-      const data = await getAllPayment(pageIndex, pageSize, search);
+      const data = await getAllPaymentOrderDate(pageIndex, pageSize, search);
       setPaymentData(data.payment); 
       setTotalPayments(data.totalPayment); 
     } catch (error) {

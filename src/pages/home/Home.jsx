@@ -29,9 +29,9 @@ const Home = () => {
   const getStatusTagPayment = (status) => {
     if (status === 'Pending') {
       return <Tag color="yellow">{status}</Tag>; 
-    } else if (status === 'Completed') { 
+    } else if (status === 'PAID') { 
       return <Tag color="green">{status}</Tag>; 
-    } else if (status === 'Cancel') { 
+    } else if (status === 'CANCELLED') { 
       return <Tag color="red">{status}</Tag>; 
     } 
     return <Tag>{status}</Tag>;
@@ -48,7 +48,7 @@ useEffect(() => {
       setPayments(paymentData.payment || []);
 
       const now = new Date();
-      const today = new Date(now.toISOString().split('T')[0]); // Set time to midnight for comparison
+      const today = new Date(now.toISOString().split('T')[0]); 
       const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
 
       // Calculate users today and this week
@@ -64,7 +64,9 @@ useEffect(() => {
       setTotalUsersThisWeek(weekUsers);
 
       // Filter only "Success" payments
-      const successPayments = paymentData.payment.filter(p => p.status === 'Success');
+      const successPayments = paymentData.payment.filter(p => p.status === 'PAID');
+      console.log("Payment statuses:", payments.map(p => p.status));
+
 
       // Calculate revenue for "Success" payments
       const todayRev = successPayments

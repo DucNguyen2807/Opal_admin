@@ -2,7 +2,7 @@ import axiosClient from "./axios/config";
 
 export const viewPaymentResult = async (orderCode) => {
   try {
-    const response = await axiosClient.get('/api/Payos', { params: { orderCode } });
+    const response = await axiosClient.get(`/api/PayOS/${orderCode}`);
 
     // Log the response data
     console.log("Response from viewPaymentResult:", response.data);
