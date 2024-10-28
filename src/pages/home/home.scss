@@ -2,52 +2,91 @@
   display: flex;
   overflow: hidden;
   height: 100vh;
-  background-color: #f0f2f5; // Thêm màu nền sáng cho toàn bộ trang
+  background-color: #f0f2f5;
 
   .homeContainer {
     flex: 6;
     padding: 20px;
-    overflow: hidden; // Đảm bảo không có nội dung nào lòi ra
-    background-color: #FFE29A; // Thêm màu nền trắng cho container
-    border-radius: 10px; // Bo tròn góc
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Thêm bóng cho container
+    overflow: auto;
+    background-color: #FFE29A;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
 
     .widgets {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
 
       >div {
-        margin-bottom: 20px;
-        flex: 1;
-        min-width: 300px; // Có thể điều chỉnh giá trị này nếu cần
-        border-radius: 10px; // Bo tròn góc cho widget
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Thêm bóng cho widget
-        transition: transform 0.2s ease; // Hiệu ứng khi hover
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-          transform: translateY(-5px); // Hiệu ứng nâng lên khi hover
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
         }
       }
     }
 
     .charts {
-      margin-top: 20px;
-      overflow: hidden; // Đảm bảo không có nội dung nào lòi ra
-      border-radius: 10px; // Bo tròn góc cho charts
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Thêm bóng cho charts
+      margin-top: 30px;
+
+      .ant-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+      }
     }
   }
 }
 
-// Responsive styles
-@media (max-width: 768px) {
-  .homeContainer {
-    padding: 10px;
-  }
+@media (max-width: 1200px) {
+  .home {
+    .homeContainer {
+      padding: 15px;
 
-  .widgets {
-    flex-direction: column;
+      .widgets {
+        gap: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    .homeContainer {
+      padding: 10px;
+
+      .widgets {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .charts {
+        margin-top: 20px;
+      }
+    }
   }
 }
