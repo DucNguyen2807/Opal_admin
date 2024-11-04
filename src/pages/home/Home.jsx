@@ -67,8 +67,9 @@ const Home = () => {
           .reduce((sum, p) => sum + p.amount, 0);
 
         const weekRev = updatedPayments
-          .filter(p => moment(p.paymentDate).isBetween(weekAgo, now, 'day', '[]'))
+          .filter(p => moment(p.paymentDate).isSame(now, 'isoWeek'))
           .reduce((sum, p) => sum + p.amount, 0);
+
 
         const monthRev = updatedPayments
           .filter(p => moment(p.paymentDate).isSame(now, 'month'))
