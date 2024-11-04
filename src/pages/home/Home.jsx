@@ -246,9 +246,9 @@ const Home = () => {
         <Navbar />
         <div className="widgets">
           <Widget title="Total Users" value={totalUsers} color="#1890ff" icon="user" textColor="#fff" />
-          <Widget title="Total Payments" value={totalPayments} color="#52c41a" icon="shopping-cart" textColor="#fff" />
           <Widget title="Total Users Today" value={totalUsersToday} color="#faad14" icon="user-add" textColor="#fff" />
           <Widget title="Total Users This Week" value={totalUsersThisWeek} color="#13c2c2" icon="usergroup-add" textColor="#fff" />
+          <Widget title="Total Payments" value={totalPayments} color="#52c41a" icon="shopping-cart" textColor="#fff" />
           <Widget 
             title="Total Revenue" 
             value={formatPrice(filteredPayments.reduce((a, b) => a + b.amount, 0))} 
